@@ -2,23 +2,26 @@ import java.util.Arrays;
 
 public class СentralPartOfTheMassif {
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4};
-        int[] middle = getArrayMiddle(numbers);
-        System.out.println(Arrays.toString(middle));
+        int[] a = {14, 16, 3};
+
+        getArrayMiddle(a);
+        System.out.println(Arrays.toString(getArrayMiddle(a)));
     }
 
     public static int[] getArrayMiddle(int[] numbers) {
-        int middleIndex = numbers.length / 2;
-        int[] middle;
-
-        if (numbers.length % 2 == 0) {
-            middle = new int[2];
-            System.arraycopy(numbers, middleIndex - 1, middle, 0, 2);
+        if (numbers.length > 2) {
+            if (numbers.length % 2 == 0) {
+                int[] arr = new int[2];
+                arr[0] = numbers[numbers.length / 2 - 1];
+                arr[1] = numbers[numbers.length / 2];
+                return arr;
+            } else {
+                int[] arr1 = new int[1];
+                arr1[0] = numbers[numbers.length / 2];
+                return arr1;
+            }
         } else {
-            middle = new int[1];
-            middle[0] = numbers[middleIndex];
+            return numbers;
         }
-
-        return middle;
     }
 }
